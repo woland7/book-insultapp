@@ -20,7 +20,7 @@ public class InsultGenerator {
 				Statement stmt = connection.createStatement();
 				ResultSet rs = stmt.executeQuery(SQL);
 				while (rs.next()) {
-				theInsult = String.format("%s %s %s?",
+				theInsult = String.format("%s %s %s ???",
 				rs.getString("first"), rs.getString("second"), rs.getString("noun"));
 				}
 				rs.close();

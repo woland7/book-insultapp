@@ -20,10 +20,7 @@ public class InsultGenerator {
 				Statement stmt = connection.createStatement();
 				ResultSet rs = stmt.executeQuery(SQL);
 				while (rs.next()) {
-					if (vowels.indexOf(rs.getString("first").charAt(0)) == -1) {
-						article = "a";
-					}
-				theInsult = String.format("%s %s %s %s?", article,
+				theInsult = String.format("%s %s %s?",
 				rs.getString("first"), rs.getString("second"), rs.getString("noun"));
 				}
 				rs.close();

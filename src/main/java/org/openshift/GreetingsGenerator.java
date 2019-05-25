@@ -10,7 +10,7 @@ public class GreetingsGenerator {
 
 		try {
 			String databaseURL = "jdbc:";
-			databaseURL += System.getenv("uri");
+			databaseURL += System.getenv("postgresql://172.30.98.198");
 			databaseURL += "/" + System.getenv("database_name");
 
 			String username = System.getenv("username");
@@ -19,12 +19,12 @@ public class GreetingsGenerator {
 
 			if (connection != null) {
 				System.out.println("connected");
-				//String SQL = "select a.string AS first, b.string AS second, c.string AS noun from saluti a , appellativi b, domande c ORDER BY random() limit 1";
-				String SQL = "SELECT ID FROM SALUTI";
+				String SQL = "select a.string AS first, b.string AS second, c.string AS noun from saluti a , appellativi b, domande c ORDER BY random() limit 1";
 				Statement stmt = connection.createStatement();
 				ResultSet rs = stmt.executeQuery(SQL);
 				while (rs.next()) {
-					theGreeting = String.format(rs.getString(1));
+					theGreeting = String.format(rs.getString("first"),
+							rs.getString("second"), rs.getString("noun"));
 				}
 				rs.close();
 				connection.close();

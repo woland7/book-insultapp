@@ -12,10 +12,10 @@ import javax.ws.rs.core.Context;
 public class GreetingsResource {
 	@GET()
 	@Produces("application/json")
-	public HashMap<String,String> getInsult(@Context final HttpServletResponse response) {
-		HashMap<String, String> theInsult = new HashMap<String, String>();
-		theInsult.put("insult", new GreetingsGenerator().generateGreeting());
+	public HashMap<String,String> getGreeting(@Context final HttpServletResponse response) {
+		HashMap<String, String> theGreeting = new HashMap<String, String>();
+		theGreeting.put("insult", new GreetingsGenerator().generateGreeting());
 		response.setStatus(HttpServletResponse.SC_CREATED);
-		return theInsult;
+		return theGreeting;
 	}
 }

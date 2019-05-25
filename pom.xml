@@ -48,7 +48,7 @@
      <!-- http://maven.apache.org/guides/mini/guide-building-for-different-environments.html -->
      <id>openshift</id>
      <build>
-        <finalName>InsultApp</finalName>
+        <finalName>GreetingsApp</finalName>
         <plugins>
           <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -64,5 +64,5 @@
       </build>
     </profile>
   </profiles>
-	<artifactId>InsultApp</artifactId>
+	<artifactId>GreetingsApp</artifactId>
 </project>

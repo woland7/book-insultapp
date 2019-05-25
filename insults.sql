@@ -1,22 +1,22 @@
-DROP TABLE IF EXISTS short_adjective;
-DROP TABLE IF EXISTS long_adjective;
-DROP TABLE IF EXISTS noun;
+DROP TABLE IF EXISTS saluti;
+DROP TABLE IF EXISTS appellativi;
+DROP TABLE IF EXISTS domande;
 
 BEGIN;
 
-CREATE TABLE short_adjective (id serial PRIMARY KEY, string varchar);
-CREATE TABLE long_adjective (id serial PRIMARY KEY, string varchar);
-CREATE TABLE noun (id serial PRIMARY KEY, string varchar);
+CREATE TABLE saluti (id serial PRIMARY KEY, string varchar);
+CREATE TABLE appellativi (id serial PRIMARY KEY, string varchar);
+CREATE TABLE domande (id serial PRIMARY KEY, string varchar);
 
-INSERT INTO short_adjective (string) VALUES ('Ciao');
-INSERT INTO short_adjective (string) VALUES ('Buongiorno');
-INSERT INTO short_adjective (string) VALUES ('Buonasera');
+INSERT INTO saluti (string) VALUES ('Ciao');
+INSERT INTO saluti (string) VALUES ('Buongiorno');
+INSERT INTO saluti (string) VALUES ('Buonasera');
 
-INSERT INTO long_adjective (string) VALUES ('amico');
-INSERT INTO long_adjective (string) VALUES ('bello');
-INSERT INTO long_adjective (string) VALUES ('compagno');
+INSERT INTO appellativi (string) VALUES ('amico');
+INSERT INTO appellativi (string) VALUES ('bello');
+INSERT INTO appellativi (string) VALUES ('compagno');
 
-INSERT INTO noun (string) VALUES ('come stai');
-INSERT INTO noun (string) VALUES ('come va');
-INSERT INTO noun (string) VALUES ('tutto bene');
+INSERT INTO saluti (string) VALUES ('come stai?');
+INSERT INTO saluti (string) VALUES ('come va?');
+INSERT INTO saluti (string) VALUES ('tutto bene?');
 COMMIT;

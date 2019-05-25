@@ -6,6 +6,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.Random;
 
 @WebServlet("/test")
 public class TestServlet extends HttpServlet {
@@ -43,7 +45,10 @@ public class TestServlet extends HttpServlet {
                 }
             }
         }
-        response.getWriter().println("The element in the position (0,0) of the product matrix is: " + product[0][1]);
+        Random generator = new Random();
+        int l = generator.nextInt(500) + 1;
+        int m = generator.nextInt(500) + 1;
+        response.getWriter().println("The element in the position (0,0) of the product matrix is: " + product[l][m]);
     }
 
 }

@@ -23,7 +23,7 @@ public class GreetingsGenerator {
 				Statement stmt = connection.createStatement();
 				ResultSet rs = stmt.executeQuery(SQL);
 				while (rs.next()) {
-					theGreeting =  String.format("Thou art %s %s %s!",rs.getString("first"),
+					theGreeting =  String.format("%s %s %s",rs.getString("first"),
 							rs.getString("second"), rs.getString("noun"));
 				}
 				rs.close();

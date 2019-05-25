@@ -16,7 +16,7 @@ INSERT INTO appellativi (string) VALUES ('amico');
 INSERT INTO appellativi (string) VALUES ('bello');
 INSERT INTO appellativi (string) VALUES ('compagno');
 
-INSERT INTO saluti (string) VALUES ('come stai?');
-INSERT INTO saluti (string) VALUES ('come va?');
-INSERT INTO saluti (string) VALUES ('tutto bene?');
+INSERT INTO domande (string) VALUES ('come stai?');
+INSERT INTO domande (string) VALUES ('come va?');
+INSERT INTO domande (string) VALUES ('tutto bene?');
 COMMIT;

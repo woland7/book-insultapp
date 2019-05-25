@@ -6,9 +6,7 @@ import java.sql.Statement;
 
 public class GreetingsGenerator {
 	public String generateGreeting() {
-		String vowels = "AEIOU";
-		String article = "an";
-		String theInsult = "";
+		String theGreeting = "";
 
 		try {
 			String databaseURL = "jdbc:";
@@ -25,10 +23,7 @@ public class GreetingsGenerator {
 				Statement stmt = connection.createStatement();
 				ResultSet rs = stmt.executeQuery(SQL);
 				while (rs.next()) {
-					if (vowels.indexOf(rs.getString("first").charAt(0)) == -1) {
-						article = "a";
-					}
-					theInsult =  String.format("Thou art %s %s %s %s!", article, rs.getString("first"),
+					theGreeting = String.format(rs.getString("first"),
 							rs.getString("second"), rs.getString("noun"));
 				}
 				rs.close();
@@ -37,6 +32,6 @@ public class GreetingsGenerator {
 		} catch (Exception e) {
 			return "Database connection problem!";
 		}
-		return theInsult;
+		return theGreeting;
 	}
 }

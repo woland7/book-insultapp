@@ -14,7 +14,7 @@ public class GreetingsResource {
 	@Produces("application/json")
 	public HashMap<String,String> getGreeting(@Context final HttpServletResponse response) {
 		HashMap<String, String> theGreeting = new HashMap<String, String>();
-		theGreeting.put("insult", new GreetingsGenerator().generateGreeting());
+		theGreeting.put("greeting", new GreetingsGenerator().generateGreeting());
 		response.setStatus(HttpServletResponse.SC_CREATED);
 		return theGreeting;
 	}

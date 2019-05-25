@@ -12,7 +12,7 @@ public class GreetingsGenerator {
 
 		try {
 			String databaseURL = "jdbc:";
-			databaseURL += System.getenv("uri");
+			databaseURL += System.getenv("postgres://172.30.98.198:5432");
 			databaseURL += "/" + System.getenv("database_name");
 
 			String username = System.getenv("username");

@@ -9,8 +9,8 @@ public class GreetingsGenerator {
 		String theGreeting = "";
 
 		try {
-			String databaseURL = "jdbc:";
-			databaseURL += System.getenv("postgresql://172.30.98.198");
+			String databaseURL = "jdbc:postgresql://";
+			databaseURL += System.getenv("POSTGRESQL_SERVICE_HOST");
 			databaseURL += "/" + System.getenv("database_name");
 
 			String username = System.getenv("username");

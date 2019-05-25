@@ -20,13 +20,7 @@ public class GreetingsGenerator {
 			if (connection != null) {
 				System.out.println("connected");
 				String SQL = "select a.string AS first, b.string AS second, c.string AS noun from saluti a , appellativi b, domande c ORDER BY random() limit 1";
-				Statement stmt = connection.createStatement();
-				ResultSet rs = stmt.executeQuery(SQL);
-				while (rs.next()) {
-					theGreeting = String.format(rs.getString("first"),
-							rs.getString("second"), rs.getString("noun"));
-				}
-				rs.close();
+				
 				connection.close();
 			}
 		} catch (Exception e) {

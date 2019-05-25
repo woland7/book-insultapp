@@ -6,9 +6,7 @@ import java.sql.Statement;
 
 public class GreetingsGenerator {
 	public String generateGreeting() {
-		String vowels = "AEIOU";
-		String article = "an";
-		String theInsult = "";
+		String theGreeting = "";
 
 		try {
 			String databaseURL = "jdbc:postgresql://";
@@ -20,14 +18,11 @@ public class GreetingsGenerator {
 			Connection connection = DriverManager.getConnection(databaseURL, username, password);
 
 			if (connection != null) {
-				String SQL = "select a.string AS first, b.string AS second, c.string AS noun from short_adjective a , long_adjective b, noun c ORDER BY random() limit 1";
+				String SQL = "select a.string AS first, b.string AS second, c.string AS noun from saluti a , nome b, domanda c ORDER BY random() limit 1";
 				Statement stmt = connection.createStatement();
 				ResultSet rs = stmt.executeQuery(SQL);
 				while (rs.next()) {
-					if (vowels.indexOf(rs.getString("first").charAt(0)) == -1) {
-						article = "a";
-					}
-					theInsult =  String.format("Thou art %s %s %s %s!", article, rs.getString("first"),
+					theGreeting =  String.format("%s %s %s, %s?", rs.getString("first"),
 							rs.getString("second"), rs.getString("noun"));
 				}
 				rs.close();
@@ -36,6 +31,6 @@ public class GreetingsGenerator {
 		} catch (Exception e) {
 			return "Database connection problem!";
 		}
-		return theInsult;
+		return theGreeting;
 	}
 }
